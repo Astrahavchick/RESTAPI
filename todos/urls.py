@@ -3,8 +3,8 @@ from rest_framework.routers import DefaultRouter
 from .views import TodoViewSet
 
 router = DefaultRouter()
-router.register(r'todos', TodoViewSet) # Регистрирует /todos/
+router.register(r'todos', TodoViewSet)
 
 urlpatterns = [
-    path('api/', include(router.urls)), # Все URL будут начинаться с /api/
+    path('api/', include(router.urls)),
 ]
