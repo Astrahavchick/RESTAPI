@@ -2,6 +2,7 @@ version: "3.9"
 
 services:
   backend:
+    container_name: backend
     build:
       context: .
     command: python manage.py runserver 0.0.0.0:8000
@@ -23,6 +24,15 @@ services:
       POSTGRES_DB: todolist_db
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: admin
+
+  frontend:
+    build:
+      context: ../../WebStormProjects/FRONT
+    container_name: frontend
+    ports:
+      - "4173:80"
+    depends_on:
+      - backend
 
 volumes:
   pgdata:
